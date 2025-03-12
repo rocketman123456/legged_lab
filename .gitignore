@@ -5,4 +5,4 @@ outputs
 logs
 run_bash.sh
 wandb
-*rsl_rl*
+# *rsl_rl*

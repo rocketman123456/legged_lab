@@ -6,6 +6,7 @@ import argparse
 
 from isaaclab.app import AppLauncher
 from rsl_rl.runners import OnPolicyRunner
+
 # local imports
 import legged_lab.utils.cli_args as cli_args  # isort: skip
 
@@ -41,7 +42,7 @@ def play():
 
     env_cfg.noise.add_noise = False
     env_cfg.domain_rand.push_robot.enable = False
-    env_cfg.scene.max_episode_length_s = 40.
+    env_cfg.scene.max_episode_length_s = 40.0
     env_cfg.scene.num_envs = 50
     env_cfg.scene.env_spacing = 2.5
     env_cfg.commands.ranges.lin_vel_x = (0.6, 0.6)
@@ -76,15 +77,12 @@ def play():
     policy = runner.get_inference_policy(device=env.device)
 
     export_model_dir = os.path.join(os.path.dirname(resume_path), "exported")
-    export_policy_as_jit(
-        runner.alg.actor_critic, runner.obs_normalizer, path=export_model_dir, filename="policy.pt"
-    )
-    export_policy_as_onnx(
-        runner.alg.actor_critic, normalizer=runner.obs_normalizer, path=export_model_dir, filename="policy.onnx"
-    )
+    export_policy_as_jit(runner.alg.actor_critic, runner.obs_normalizer, path=export_model_dir, filename="policy.pt")
+    export_policy_as_onnx(runner.alg.actor_critic, normalizer=runner.obs_normalizer, path=export_model_dir, filename="policy.onnx")
 
     if not args_cli.headless:
         from legged_lab.utils.keyboard import Keyboard
+
         keyboard = Keyboard(env)  # noqa:F841
 
     obs, _ = env.get_observations()
@@ -96,6 +94,6 @@ def play():
             obs, _, _, _ = env.step(actions)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     play()
     simulation_app.close()

@@ -4,6 +4,7 @@ import argparse
 
 from isaaclab.app import AppLauncher
 from rsl_rl.runners import OnPolicyRunner
+
 # local imports
 import legged_lab.utils.cli_args as cli_args  # isort: skip
 
@@ -73,6 +74,6 @@ def train():
     runner.learn(num_learning_iterations=agent_cfg.max_iterations, init_at_random_ep_len=True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     train()
     simulation_app.close()
