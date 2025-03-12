@@ -12,6 +12,12 @@ if TYPE_CHECKING:
     from legged_lab.envs.base.base_env_config import BaseSceneCfg
 
 
+# ISAAC_NUCLEUS_DIR = "omniverse://localhost/Isaac"
+# ISAACLAB_NUCLEUS_DIR = "omniverse://localhost/IsaacLab"
+ISAAC_NUCLEUS_DIR = "omniverse://localhost/NVIDIA/Assets/Isaac/4.2/Isaac"
+ISAACLAB_NUCLEUS_DIR = "omniverse://localhost/NVIDIA/Assets/Isaac/4.5/Isaac/IsaacLab"
+
+
 @configclass
 class SceneCfg(InteractiveSceneCfg):
     """Configuration for a cart-pole scene."""
