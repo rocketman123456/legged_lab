@@ -7,6 +7,7 @@ from legged_lab.envs.anymal_d.anymal_d_config import AnymalDFlatEnvCfg, AnymalDR
 from legged_lab.utils.task_registry import task_registry
 
 from legged_lab.envs.srobot.srobot_biped_config import SrobotBipedFlatEnvCfg, SrobotBipedRoughEnvCfg, SrobotBipedFlatAgentCfg, SrobotBipedRoughAgentCfg
+from legged_lab.envs.srobot.srobot_biped_env import SrobotBipedEnv
 
 task_registry.register("h1_flat", BaseEnv, H1FlatEnvCfg(), H1FlatAgentCfg())
 task_registry.register("h1_rough", BaseEnv, H1RoughEnvCfg(), H1RoughAgentCfg())
@@ -16,5 +17,5 @@ task_registry.register("gr2_flat", BaseEnv, GR2FlatEnvCfg(), GR2FlatAgentCfg())
 task_registry.register("gr2_rough", BaseEnv, GR2RoughEnvCfg(), GR2RoughAgentCfg())
 task_registry.register("anymal_d_flat", BaseEnv, AnymalDFlatEnvCfg(), AnymalDFlatAgentCfg())
 task_registry.register("anymal_d_rough", BaseEnv, AnymalDRoughEnvCfg(), AnymalDRoughAgentCfg())
-task_registry.register("srobot_biped_flat", BaseEnv, SrobotBipedFlatEnvCfg(), SrobotBipedFlatAgentCfg())
-task_registry.register("srobot_biped_rough", BaseEnv, SrobotBipedRoughEnvCfg(), SrobotBipedRoughAgentCfg())
+task_registry.register("srobot_biped_flat", SrobotBipedEnv, SrobotBipedFlatEnvCfg(), SrobotBipedFlatAgentCfg())
+task_registry.register("srobot_biped_rough", SrobotBipedEnv, SrobotBipedRoughEnvCfg(), SrobotBipedRoughAgentCfg())
