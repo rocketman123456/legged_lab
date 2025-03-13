@@ -9,7 +9,7 @@ inherit from ``isaaclab.terrains.terrains_cfg.TerrainConfig`` and define the fol
 
 - ``name``: Name of the terrain. This is used for the prim name in the USD stage.
 - ``function``: Function to generate the terrain. This function must take as input the terrain difficulty
-  and the configuration parameters and return a `tuple with the `trimesh`` mesh object and terrain origin.
+    and the configuration parameters and return a `tuple with the `trimesh`` mesh object and terrain origin.
 """
 
 import isaaclab.terrains as terrain_gen
@@ -26,11 +26,7 @@ GRAVEL_TERRAINS_CFG = TerrainGeneratorCfg(
     vertical_scale=0.005,
     slope_threshold=0.75,
     use_cache=False,
-    sub_terrains={
-        "random_rough": terrain_gen.HfRandomUniformTerrainCfg(
-            proportion=0.2, noise_range=(-0.02, 0.04), noise_step=0.02, border_width=0.25
-        )
-    },
+    sub_terrains={"random_rough": terrain_gen.HfRandomUniformTerrainCfg(proportion=0.2, noise_range=(-0.02, 0.04), noise_step=0.02, border_width=0.25)},
 )
 
 ROUGH_TERRAINS_CFG = TerrainGeneratorCfg(
@@ -60,17 +56,9 @@ ROUGH_TERRAINS_CFG = TerrainGeneratorCfg(
             border_width=1.0,
             holes=False,
         ),
-        "boxes": terrain_gen.MeshRandomGridTerrainCfg(
-            proportion=0.2, grid_width=0.45, grid_height_range=(0.05, 0.15), platform_width=2.0
-        ),
-        "random_rough": terrain_gen.HfRandomUniformTerrainCfg(
-            proportion=0.2, noise_range=(0.02, 0.10), noise_step=0.02, border_width=0.25
-        ),
-        "hf_pyramid_slope": terrain_gen.HfPyramidSlopedTerrainCfg(
-            proportion=0.1, slope_range=(0.0, 0.4), platform_width=2.0, border_width=0.25
-        ),
-        "hf_pyramid_slope_inv": terrain_gen.HfInvertedPyramidSlopedTerrainCfg(
-            proportion=0.1, slope_range=(0.0, 0.4), platform_width=2.0, border_width=0.25
-        ),
+        "boxes": terrain_gen.MeshRandomGridTerrainCfg(proportion=0.2, grid_width=0.45, grid_height_range=(0.05, 0.15), platform_width=2.0),
+        "random_rough": terrain_gen.HfRandomUniformTerrainCfg(proportion=0.2, noise_range=(0.02, 0.10), noise_step=0.02, border_width=0.25),
+        "hf_pyramid_slope": terrain_gen.HfPyramidSlopedTerrainCfg(proportion=0.1, slope_range=(0.0, 0.4), platform_width=2.0, border_width=0.25),
+        "hf_pyramid_slope_inv": terrain_gen.HfInvertedPyramidSlopedTerrainCfg(proportion=0.1, slope_range=(0.0, 0.4), platform_width=2.0, border_width=0.25),
     },
 )

@@ -10,7 +10,7 @@ from legged_lab.assets import ISAAC_ASSET_DIR
 
 SROBOT_WHEEL_LEGGED_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{ISAAC_ASSET_DIR}/srobot-wheel-legged/usd/srobot-wheel-legged.usd",
+        usd_path=f"{ISAAC_ASSET_DIR}/srobot_wheel_legged/usd/srobot-wheel-legged.usd",
         activate_contact_sensors=True,
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=False,
